@@ -95,7 +95,7 @@ export default function Home(props) {
             WHY WETIME ?
           </div>
           <div className="flex">
-            <div className="m-[50px] lg:ml-[114px] flex-auto  w-1/2">
+            <div className="lg:m-[50px] lg:ml-[114px] flex-auto  w-1/2">
               <div className="font-light sm:text-xl mb-[15px] lg:mb-[34px] ">
                 Lorem ipsum dolor sit amet consectetur. Sed dolor neque morbi
                 sit pretium vitae aliquam enim. Leo diam mauris ipsum neque
@@ -158,7 +158,7 @@ export default function Home(props) {
         <div>
           <Testimonial />
         </div>
-        <div className="p-[50px] bg-[#FDCF7A] dark:bg-[#1c1c1c]">
+        <div className="lg:p-[50px] p-5 bg-[#FDCF7A] dark:bg-[#1c1c1c]">
           <Faq />
         </div>
       </div>

@@ -23,17 +23,17 @@ const Faq = () => {
         Frequently ask questions?
       </div>
       <div className="flex items-center">
-        <div className="w-full lg:w-3/4 mr-[10px]">
+        <div className="w-full lg:w-3/4 lg:mr-[10px]">
           {faqs.map((faq) => (
             <div
               key={faq.id}
-              className="m-[15px] p-5 bg-white dark:bg-black w-full"
+              className="mb-[15px] p-5 bg-white dark:bg-black w-full"
             >
               <div className="flex justify-between">
                 <h3 className="text-[#120F49] dark:text-[#A2A0B5] text-xl font-semibold mb-3">
                   Lorem ipsum dolor sit amet
                 </h3>
-                <div className="pt-1">
+                <div className="lg:pt-1">
                   <span>
                     {faq.show && (
                       <Image
