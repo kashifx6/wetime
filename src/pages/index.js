@@ -15,7 +15,7 @@ export default function Home(props) {
       <div className="dark:bg-[#1c1c1c]">
         <div className="flex ">
           <div className="content w-full lg:w-550px lg:mr-[100px]   lg:ml-[200px] p-5 md:text-sm font-normal lg:mt-[150px] ">
-            <div className="text-[#120F49] text-justify font-semibold text-2xl mb-[15px] dark:text-[#A2A0B5]">
+            <div className="text-[#120F49] lg:text-justify font-semibold text-2xl mb-[15px] dark:text-[#A2A0B5]">
               Welcome to wetime, <br />
               Ultimate destination for couples to enjoy quality time together
             </div>
