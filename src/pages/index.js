@@ -14,7 +14,7 @@ export default function Home(props) {
     <>
       <div className="dark:bg-[#1c1c1c]">
         <div className="flex ">
-          <div className="content w-full lg:w-550px lg:mr-[100px]   lg:ml-[200px] m-[50px] lg:mt-[150px] ">
+          <div className="content w-full lg:w-550px lg:mr-[100px]   lg:ml-[200px] p-5 md:text-sm font-normal lg:mt-[150px] ">
             <div className="text-[#120F49] text-justify font-semibold text-2xl mb-[15px] dark:text-[#A2A0B5]">
               Welcome to wetime, <br />
               Ultimate destination for couples to enjoy quality time together
@@ -62,7 +62,7 @@ export default function Home(props) {
           </div>
         </div>
 
-        <div className="w-full m-[50px]  lg:flex lg:w-[991px] lg:ml-[182px] lg:mt-[15px] lg:mb-[206px] md:ml-[200px] ">
+        <div className="w-full p-5  lg:flex lg:w-[991px] lg:ml-[182px] lg:mt-[15px] lg:mb-[206px] md:ml-[200px] ">
           <div className="hidden lg:block flex-auto  w-1/2 ">
             <Image
               className="ml-[15px]"
@@ -72,11 +72,11 @@ export default function Home(props) {
               height={400}
             />
           </div>
-          <div className=" lg:flex-auto lg:w-1/2 lg:ml-[82px] m-[10px]">
+          <div className="w-full lg:flex-auto lg:w-1/2 lg:ml-[82px] ">
             <div className="text-4xl font-bold mb-[35px] text-[#120F49] dark:text-[#A2A0B5]">
               What is WETIME?
             </div>
-            <div className="text-[#A2A0B5] font-normal text-2xl mb-[34px] dark:text-[#D9D9D9]">
+            <div className="text-[#A2A0B5] font-light sm:text-xl lg:text-2xl mb-[34px] dark:text-[#D9D9D9]">
               Strengthen your bond with WeTime AI,where couples come together to
               play.Enjoy fun and challenging games designed for two, and watch
               your relationship bloom anew.
@@ -96,7 +96,7 @@ export default function Home(props) {
           </div>
           <div className="flex">
             <div className="m-[50px] lg:ml-[114px] flex-auto  w-1/2">
-              <div className="font-light sm:text-xl mb-[34px] ">
+              <div className="font-light sm:text-xl mb-[15px] lg:mb-[34px] ">
                 Lorem ipsum dolor sit amet consectetur. Sed dolor neque morbi
                 sit pretium vitae aliquam enim. Leo diam mauris ipsum neque
                 faucibus a eget. Magna vitae in dictum nibh augue. Ultrices nisl
