@@ -1,9 +1,10 @@
 // pages/api/chatbot.js
+import dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
-
+dotenv.config();
 const openai = new OpenAIApi(
   new Configuration({
-    apiKey: "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", // Replace with your OpenAI API key
+    apiKey: process.env.API_KEY, // Replace with your OpenAI API key
   })
 );
 
