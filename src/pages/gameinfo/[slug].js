@@ -14,10 +14,14 @@ const slug = () => {
   const game = gameInfo.find((game) => game.slug === slug);
 
   const [isOpen, setIsOpen] = useState(false);
-
+  const [value, setValue] = useState();
+  const handleInput = (event) => {
+    setValue(event.target.value);
+  };
   const handleToggleModal = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setIsOpen(!isOpen);
+   
   };
   const breadcrumbItems = [
     { href: "/", label: "Home" },
@@ -34,7 +38,7 @@ const slug = () => {
         <section className="">
           <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
             <form
-              action="#"
+              onSubmit={handleToggleModal}
               className="space-y-8 bg-white dark:bg-[#212121] rounded-[12px] p-5 shadow-2xl"
             >
               {game && game.title === "COUPLE'S CHALLENGE" && (
@@ -45,16 +49,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Write a description about challenge"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button
-                      onClick={handleToggleModal}
-                      value="GENERATE STORY"
-                    />
+                    <Button value="GENERATE STORY" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -67,16 +71,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Write a description about scenario"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button
-                      onClick={handleToggleModal}
-                      value="GENERATE SCENARIO"
-                    />
+                    <Button value="GENERATE SCENARIO" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -128,16 +132,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Write a description about challenge"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button
-                      onClick={handleToggleModal}
-                      value="GENERATE ADVENTURE"
-                    />
+                    <Button value="GENERATE ADVENTURE" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -170,16 +174,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Write a description about story"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button
-                      onClick={handleToggleModal}
-                      value="GENERATE STORY"
-                    />
+                    <Button value="GENERATE STORY" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -193,13 +197,15 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="SEARCH FOR ANY KIND OF WORD"
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button onClick={handleToggleModal} value="GENERATE WORD" />
+                    <Button value="GENERATE WORD" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -231,16 +237,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Write a description about movie"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button
-                      onClick={handleToggleModal}
-                      value="GENERATE MOVIE"
-                    />
+                    <Button value="GENERATE MOVIE" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -253,16 +259,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Discuss the reason of conflict"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button
-                      onClick={handleToggleModal}
-                      value="RESOLVE CONFLICT"
-                    />
+                    <Button value="RESOLVE CONFLICT" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -275,13 +281,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Discuss how much your partner cares about you"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button onClick={handleToggleModal} value="BUILD EMPATHY" />
+                    <Button value="BUILD EMPATHY" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                     />
                   </div>
                 </>
@@ -294,16 +303,16 @@ const slug = () => {
                       id="message"
                       rows="6"
                       placeholder="Discuss what kind of appology you want ?"
+                      value={value}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="flex justify-center">
-                    <Button
-                      onClick={handleToggleModal}
-                      value="GENERATE APOLOGY"
-                    />
+                    <Button value="GENERATE APOLOGY" />
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
+                      description={value}
                       message="Discuss what kind of appology you want ?"
                     />
                   </div>

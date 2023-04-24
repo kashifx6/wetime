@@ -13,6 +13,8 @@ const Input = (props) => {
         rows="6"
         type={props.type}
         id={props.id}
+        onChange={props.onChange}
+        value={props.value}
         className="bg-transparent border border-gray-100 dark:border-[#333] rounded-lg focus:ring-blue-500 w-full p-2.5 dark:placeholder-gray-400 placeholder-[#cbc9d6] dark:text-white focus:outline-none"
         placeholder={props.placeholder}
         required

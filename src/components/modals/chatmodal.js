@@ -1,7 +1,45 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Chatmodal = ({ isOpen, handleToggleModal, message }) => {
+const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
+  const [input, setInput] = useState();
+  const [output, setOutput] = useState("");
+  const [history, setHistory] = useState([]);
+  const [outputHistory, setOutputHistory] = useState([]);
+  const handleInput = (event) => {
+    setInput(event.target.value);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        console.log(description);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData(); // Call fetchData function to trigger the API call
+  }, [description]);
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("/api/openai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input }),
+      });
+      const data = await response.json();
+      setHistory((prevOutput) => [...prevOutput, input]);
+      setOutput(data.message);
+      setOutputHistory((prevOutput) => [...prevOutput, data.message]);
+      setInput("");
+      setOutput("");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       {isOpen && (
@@ -13,11 +51,11 @@ const Chatmodal = ({ isOpen, handleToggleModal, message }) => {
         >
           <div className="relative w-full  max-h-full">
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
-                <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
-                  <div class="relative flex items-center space-x-4">
-                    <div class="relative">
-                      <span class="absolute text-green-500 right-0 bottom-0">
+              <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
+                <div className="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
+                  <div className="relative flex items-center space-x-4">
+                    <div className="relative">
+                      <span className="absolute text-green-500 right-0 bottom-0">
                         <svg width="20" height="20">
                           <circle
                             cx="8"
@@ -35,18 +73,18 @@ const Chatmodal = ({ isOpen, handleToggleModal, message }) => {
                         height={50}
                       />
                     </div>
-                    <div class="flex flex-col leading-tight">
-                      <div class="text-2xl mt-1 flex items-center">
-                        <span class="text-gray-700 mr-3 dark:text-white ">
+                    <div className="flex flex-col leading-tight">
+                      <div className="text-2xl mt-1 flex items-center">
+                        <span className="text-gray-700 mr-3 dark:text-white ">
                           WETIME Bot
                         </span>
                       </div>
-                      <span class="text-lg text-gray-600 dark:text-white">
+                      <span className="text-lg text-gray-600 dark:text-white">
                         Automated Chat
                       </span>
                     </div>
                   </div>
-                  <div class="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2">
                     <button
                       onClick={handleToggleModal}
                       type="button"
@@ -70,116 +108,108 @@ const Chatmodal = ({ isOpen, handleToggleModal, message }) => {
                 </div>
                 <div
                   id="messages"
-                  class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
+                  className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
                 >
-                  <div class="chat-message">
-                    <div class="flex items-end mb-4">
-                      <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                  <div className="chat-message">
+                    <div className="flex items-end mb-4">
+                      <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                         <div>
-                          <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                          <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
                             Hi There ?
                           </span>
                         </div>
                       </div>
 
                       <Image
-                        className="w-6  h-6  rounded-full"
+                        className="w-6 h-6 rounded-full"
                         src="/assets/images/bot.svg"
                         alt=""
                         width={10}
                         height={10}
                       />
                     </div>
-                    <div class="flex items-end mb-4">
-                      <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                        <div>
-                          <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                            Hi How can i help you ?
-                          </span>
+
+                    {history.map((message, index) => (
+                      <React.Fragment key={index}>
+                        <div className="flex items-end justify-end mb-4">
+                          <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
+                            <div>
+                              <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
+                                {message}
+                              </span>
+                            </div>
+                          </div>
+                          <Image
+                            className="w-6 h-6 rounded-full order-2"
+                            src="/assets/images/user.svg"
+                            alt="user"
+                            width={10}
+                            height={10}
+                          />
                         </div>
-                      </div>
-                      <Image
-                        className="w-6  h-6  rounded-full"
-                        src="/assets/images/bot.svg"
-                        alt=""
-                        width={10}
-                        height={10}
-                      />
-                    </div>
-                  </div>
-                  <div class="chat-message">
-                    <div class="flex items-end justify-end mb-4">
-                      <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                        <div>
-                          <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                            I want to generate a random number
-                          </span>
-                        </div>
-                      </div>
-                      <Image
-                        className="w-6  h-6  rounded-full order-2"
-                        src="/assets/images/user.svg"
-                        alt="user"
-                        width={10}
-                        height={10}
-                      />
-                    </div>
-                  </div>
-                  <div class="flex items-end mb-4">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                      <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                          Sure Here it is " 58902 "
-                        </span>
-                      </div>
-                    </div>
-                    <Image
-                      className="w-6  h-6  rounded-full"
-                      src="/assets/images/bot.svg"
-                      alt=""
-                      width={10}
-                      height={10}
-                    />
+                        {outputHistory[index] && (
+                          <div className="flex flex-wrap items-start mb-4">
+                            <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                              <div>
+                                <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                                  {outputHistory[index]}
+                                </span>
+                              </div>
+                            </div>
+                            <Image
+                              className="w-6 h-6 rounded-full"
+                              src="/assets/images/bot.svg"
+                              alt=""
+                              width={10}
+                              height={10}
+                            />
+                          </div>
+                        )}
+                      </React.Fragment>
+                    ))}
                   </div>
                 </div>
-                <div class="border-t-2 border-gray-200 px-4 pt-4 mb-[15px] sm:mb-0">
-                  <div class="relative flex">
-                    <span class="absolute inset-y-0 flex items-center">
+                <div className="border-t-2 border-gray-200 px-4 pt-4 mb-[15px] sm:mb-0">
+                  <div className="relative flex">
+                    <span className="absolute inset-y-0 flex items-center">
                       <button
                         type="button"
-                        class="inline-flex items-center justify-center rounded-full h-12 w-12 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none"
+                        className="inline-flex items-center justify-center rounded-full h-12 w-12 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
-                          class="h-6 w-6 text-gray-600"
+                          className="h-6 w-6 text-gray-600"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
                           ></path>
                         </svg>
                       </button>
                     </span>
                     <input
+                      onChange={handleInput}
                       type="text"
+                      value={input}
                       placeholder="Write your message!"
-                      class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3"
+                      className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3"
                     />
-                    <div class="absolute right-0 items-center inset-y-0 hidden sm:flex">
+                    <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
                       <button
+                        onClick={handleSubmit}
                         type="button"
-                        class="bg-transparent inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-gray-700 dark:text-black  hover:bg-gray-300 focus:outline-none"
+                        className="bg-transparent inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-gray-700 dark:text-black  hover:bg-gray-300 focus:outline-none"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          class=" h-6 w-6 ml-2 transform rotate-90"
+                          className=" h-6 w-6 ml-2 transform rotate-90"
                         >
                           <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
                         </svg>
