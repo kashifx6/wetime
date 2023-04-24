@@ -130,7 +130,7 @@ export default function Home(props) {
             </div>
           </div>
         </div>
-        <div className="p-[50px] bg-[#FDCF7A] dark:bg-[#1c1c1c]">
+        <div className="p-[10px] bg-[#FDCF7A] dark:bg-[#1c1c1c]">
           <div className="text-4xl font-bold  text-center mb-[70px] text-[#120F49] dark:text-[#A2A0B5]">
             COUPLE GAMES
           </div>
