@@ -13,15 +13,32 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(description);
+        if (description !== null) { // Add a conditional check for description
+          const response = await fetch("/api/openai", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ input:description }),
+          });
+          const data = await response.json();
+         
+          setHistory((prevOutput) => [...prevOutput, description]);
+          setOutput(data.message);
+          setOutputHistory((prevOutput) => [...prevOutput, data.message]);
+          setInput("");
+          setOutput("");
+        }
       } catch (error) {
         console.error(error);
       }
     };
+    
     fetchData(); // Call fetchData function to trigger the API call
   }, [description]);
+   
 
-  const handleSubmit = async () => {
+  const handleSubmit = async () => { 
     try {
       const response = await fetch("/api/openai", {
         method: "POST",

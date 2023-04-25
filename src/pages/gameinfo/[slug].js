@@ -21,7 +21,6 @@ const slug = () => {
   const handleToggleModal = (e) => {
     e.preventDefault();
     setIsOpen(!isOpen);
-   
   };
   const breadcrumbItems = [
     { href: "/", label: "Home" },
@@ -58,7 +57,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -80,7 +79,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -141,7 +140,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -183,7 +182,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -205,7 +204,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -246,7 +245,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -268,7 +267,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -290,7 +289,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                     />
                   </div>
                 </>
@@ -312,7 +311,7 @@ const slug = () => {
                     <Chatmodal
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
-                      description={value}
+                      description={isOpen ? value : null}
                       message="Discuss what kind of appology you want ?"
                     />
                   </div>
