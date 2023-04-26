@@ -29,7 +29,7 @@ const Navbar = ({ toggleDarkMode, darkMode, absolute }) => {
       <nav
         className={`${
           absolute
-            ? "absolute top-0 w-full bg-transparent z-10"
+            ? "lg:absolute lg:top-0 lg:w-full lg:bg-transparent lg:z-10"
             : "bg-transparent border-gray-200 dark:bg-black"
         }   `}
       >
@@ -43,13 +43,13 @@ const Navbar = ({ toggleDarkMode, darkMode, absolute }) => {
             data-collapse-toggle="navbar-default"
             type="button"
             onClick={showNavbar}
-            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="dark:bg-gray-300 inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default"
             aria-expanded="false"
           >
             <span class="sr-only">Open main menu</span>
             <Image
-              src="/assets/images/svg/menu.png"
+              src="/assets/images/menu.png"
               alt="Menu Icon"
               width={30}
               height={30}
