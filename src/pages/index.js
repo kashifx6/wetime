@@ -34,7 +34,7 @@ export default function Home(props) {
             <div className=" relative hidden lg:block">
               {!props.darkMode && (
                 <Image
-                  className="rounded-t-lg mb-[23px]"
+                  className=" mb-[23px]"
                   src="/assets/images/Vector_light.png"
                   alt=""
                   width={2350}
@@ -43,7 +43,7 @@ export default function Home(props) {
               )}
               {props.darkMode && (
                 <Image
-                  className="rounded-t-lg mb-[23px]"
+                  className=" mb-[23px]"
                   src="/assets/images/Vector_dark.png"
                   alt=""
                   width={3050}

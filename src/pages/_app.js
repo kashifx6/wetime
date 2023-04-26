@@ -22,18 +22,14 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <div className="font-euclid-circular-b">
-        {Component.name === "Home" ? (
-          <Navbar
-            darkMode={darkMode}
-            toggleDarkMode={toggleDarkMode}
-            absolute={true} // Add absolute prop only for Home component
-          />
-        ) : (
-          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        )}
+        <Navbar
+          darkMode={darkMode}
+          toggleDarkMode={toggleDarkMode}
+          absolute={Component.name === "Home"} // Pass absolute prop based on component name
+        />
         <Component
           darkMode={darkMode}
-          absolute={Component.name === "Home"} // Pass absolute prop based on component name
+          {...(Component.name === "Home" && { absolute: true })} // Pass absolute prop only for Home component
           {...pageProps}
         />
         <Footer />
