@@ -6,6 +6,7 @@ import Footer from "@/components/footer/footer";
 
 export default function App({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
+  const isHomeComponent = Component.name === "Home"; // Check if Component is Home component
 
   useEffect(() => {
     if (darkMode) {
@@ -25,11 +26,11 @@ export default function App({ Component, pageProps }) {
         <Navbar
           darkMode={darkMode}
           toggleDarkMode={toggleDarkMode}
-          absolute={Component.name === "Home"} // Pass absolute prop based on component name
+          absolute={isHomeComponent} // Use isHomeComponent to determine if absolute prop should be passed
         />
         <Component
           darkMode={darkMode}
-          {...(Component.name === "Home" && { absolute: true })} // Pass absolute prop only for Home comp
+          {...(isHomeComponent && { absolute: true })} // Pass absolute prop only if Component is Home component
           {...pageProps}
         />
         <Footer />
