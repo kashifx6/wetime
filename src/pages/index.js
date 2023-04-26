@@ -14,18 +14,18 @@ export default function Home(props) {
     <>
       <div className="dark:bg-[#1c1c1c]">
         <div className="flex ">
-          <div className="content w-full lg:w-550px lg:mr-[100px]   lg:ml-[200px] p-5 md:text-sm font-normal lg:mt-[150px] ">
-            <div className="text-[#120F49] lg:text-justify font-semibold text-2xl mb-[15px] dark:text-[#A2A0B5]">
+          <div className="content w-full lg:w-550px lg:mr-[100px] lg:ml-[100px] p-5 md:text-sm font-normal lg:mt-[150px] ">
+            <div className="text-[#120F49] lg:text-left font-semibold text-2xl mb-[15px] dark:text-[#A2A0B5]">
               Welcome to wetime, <br />
               Ultimate destination for couples to enjoy quality time together
             </div>
-            <div className="text-[#A2A0B5] text-justify font-normal text-lg mb-[48px] dark:text-[#D9D9D9]">
+            <div className="text-[#A2A0B5] text-left font-normal text-lg mb-[48px] dark:text-[#D9D9D9]">
               Our platform offers a wide range of AI-based games that are
               designed to enhance your gaming experience with your partner.
             </div>
             <Link
               href="#"
-              className="py-2 pl-3 pr-4 text-white bg-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]"
+              className="py-2 pl-3 pr-4 text-white bg-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]  dark:border-t-2 dark:border-gray-700"
             >
               JOIN NOW
             </Link>
@@ -37,7 +37,7 @@ export default function Home(props) {
                   className="rounded-t-lg mb-[23px]"
                   src="/assets/images/Vector_light.png"
                   alt=""
-                  width={1359}
+                  width={2350}
                   height={1302}
                 />
               )}
@@ -46,7 +46,7 @@ export default function Home(props) {
                   className="rounded-t-lg mb-[23px]"
                   src="/assets/images/Vector_dark.png"
                   alt=""
-                  width={1700}
+                  width={3050}
                   height={1700}
                 />
               )}
@@ -55,8 +55,8 @@ export default function Home(props) {
                 className=" absolute top-[70px] left-[120px] dark:left-[170px]"
                 src="/assets/images/dance.png"
                 alt="dance"
-                width={400}
-                height={400}
+                width={550}
+                height={550}
               />
             </div>
           </div>
@@ -73,8 +73,8 @@ export default function Home(props) {
             />
           </div>
           <div className="w-full lg:flex-auto lg:w-1/2 lg:ml-[82px] ">
-            <div className="text-4xl font-bold mb-[35px] text-[#120F49] dark:text-[#A2A0B5]">
-              What is WETIME?
+            <div className="text-2xl font-bold mb-[35px] text-[#120F49] dark:text-[#A2A0B5]">
+              What is <b className="text-4xl">WETIME?</b>
             </div>
             <div className="text-[#A2A0B5] font-light sm:text-xl lg:text-2xl mb-[34px] dark:text-[#D9D9D9]">
               Strengthen your bond with WeTime AI,where couples come together to
@@ -83,7 +83,7 @@ export default function Home(props) {
             </div>
             <Link
               href="#"
-              className="py-2 pl-3 pr-4 text-white bg-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]"
+              className="py-2 pl-3 pr-4 text-white bg-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]  dark:border-t-2 dark:border-gray-700"
             >
               READ MORE
             </Link>
@@ -114,7 +114,7 @@ export default function Home(props) {
               </div>
               <Link
                 href="#"
-                className=" py-2 pl-3 pr-4 text-120F49 bg-[#D9F4FD] text-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-[95px] dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]"
+                className=" py-2 pl-3 pr-4 text-120F49 bg-[#D9F4FD] text-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-[95px] dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]  dark:border-t-2 dark:border-gray-700"
               >
                 TRY WETIME NOW
               </Link>
@@ -149,8 +149,15 @@ export default function Home(props) {
           <div className="flex justify-center items-center mt-[70px] ">
             <Link
               href="games"
-              className="py-2 pl-3 pr-4 text-120F49 bg-[#120F49] text-white font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-[95px] dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]"
+              className="inline-flex items-center py-2 pl-3 pr-4 text-120F49 bg-[#120F49] text-white font-medium rounded-3xl md:w-[150px] text-center text-sm px-5 py-2.5 mr-2 mb-[95px] dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5] dark:border-t-2 dark:border-gray-700"
             >
+              <Image
+                className="w-4 h-4 ml-2 mr-2"
+                src="assets/images/svg/dropdown.svg"
+                alt="playbtn"
+                width={4}
+                height={4}
+              />
               Discover all
             </Link>
           </div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Navbar = ({ toggleDarkMode, darkMode }) => {
+const Navbar = ({ toggleDarkMode, darkMode, absolute }) => {
   const [showNav, setShowNav] = useState(false);
   const darkIcon = (
     <Image
@@ -26,7 +26,13 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
   };
   return (
     <div className={darkMode ? "dark" : ""}>
-      <nav class="bg-transparent border-gray-200 dark:bg-black ">
+      <nav
+        className={`${
+          absolute
+            ? "absolute top-0 w-full bg-transparent z-10"
+            : "bg-transparent border-gray-200 dark:bg-black"
+        }   `}
+      >
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link href="/" class="flex items-center">
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -55,7 +61,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
             } w-full md:block md:w-auto`}
             id="navbar-default"
           >
-            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-black md: dark:border-gray-700">
+            <ul class="font-medium flex flex-col p-4 md:p-2 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-16 md:mt-0 md:border-0 bg-transparent md: dark:border-gray-700">
               <li>
                 <Link
                   href="/"

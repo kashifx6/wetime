@@ -27,7 +27,7 @@ const Card = (props) => {
         <div className="flex justify-center">
           <Link
             href={`/gameinfo/${props.slug}`}
-            className="inline-flex items-center font-semibold  py-2 pl-3 pr-4 text-white bg-[#120F49] text-base rounded-3xl  text-center  px-5 py-2.5 mr-2 mb-2 dark:bg-slate-800 focus:outline-none dark:text-[#F5F5F5] shadow-2xl"
+            className="inline-flex items-center font-semibold  py-2 pl-3 pr-4 text-white bg-[#120F49] text-base rounded-3xl  text-center  px-5 py-2.5 mr-2 mb-2 dark:bg-white dark:bg-opacity-20 focus:outline-none dark:text-[#F5F5F5] shadow-2xl "
           >
             <Image
               className="w-4 h-4 ml-2 mr-2"

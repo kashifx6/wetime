@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "@/styles/globals.css"; // Import your global CSS file
+import "@/styles/custom-fonts.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 
@@ -20,10 +21,19 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      {/* Render your Navbar component */}
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Component  darkMode={darkMode} {...pageProps} />
-      <Footer />
+      <div className="font-euclid-circular-b">
+        {Component.name === "Home" ? (
+          <Navbar
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+            absolute={true}
+          />
+        ) : (
+          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        )}
+        <Component darkMode={darkMode} {...pageProps} />
+        <Footer />
+      </div>
     </>
   );
 }

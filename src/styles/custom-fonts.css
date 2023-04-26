@@ -1,0 +1,13 @@
+/* custom-fonts.css */
+
+@font-face {
+    font-family: "Euclid Circular B";
+    src: url("/path/to/euclid-circular-b.woff2") format("woff2"),
+      url("/path/to/euclid-circular-b.woff") format("woff");
+    /* Update the paths to your font files */
+  }
+  
+  .font-euclid-circular-b {
+    font-family: "Euclid Circular B", sans-serif;
+  }
+  

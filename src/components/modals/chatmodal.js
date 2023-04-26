@@ -10,32 +10,32 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
     setInput(event.target.value);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (description !== null) { // Add a conditional check for description
-          const response = await fetch("/api/openai", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ input:description }),
-          });
-          const data = await response.json();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       if (description !== null) { // Add a conditional check for description
+  //         const response = await fetch("/api/openai", {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //           body: JSON.stringify({ input:description }),
+  //         });
+  //         const data = await response.json();
          
-          setHistory((prevOutput) => [...prevOutput, description]);
-          setOutput(data.message);
-          setOutputHistory((prevOutput) => [...prevOutput, data.message]);
-          setInput("");
-          setOutput("");
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  //         setHistory((prevOutput) => [...prevOutput, description]);
+  //         setOutput(data.message);
+  //         setOutputHistory((prevOutput) => [...prevOutput, data.message]);
+  //         setInput("");
+  //         setOutput("");
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
     
-    fetchData(); // Call fetchData function to trigger the API call
-  }, [description]);
+  //   fetchData(); // Call fetchData function to trigger the API call
+  // }, [description]);
    
 
   const handleSubmit = async () => { 
