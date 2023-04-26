@@ -30,7 +30,7 @@ const Faq = () => {
               className="mb-[15px] p-5 bg-white dark:bg-black w-full"
             >
               <div className="flex justify-between">
-                <h3 className="text-[#120F49] dark:text-[#A2A0B5] text-xl font-semibold mb-3">
+                <h3 className="text-[#120F49] dark:text-[#A2A0B5] text-[18px] font-semibold mb-3">
                   Lorem ipsum dolor sit amet
                 </h3>
                 <div className="lg:pt-1">
@@ -61,7 +61,7 @@ const Faq = () => {
               <hr className="dark:border-gray-500" />
 
               {faq.show && (
-                <p className="text-lg text-[#A2A0B5] dark:text-white my-[16px] mx-[48px]">
+                <p className="text-[16px] text-[#A2A0B5] dark:text-white my-[16px] mx-[48px]">
                   Lorem ipsum dolor sit amet consectetur. Mauris at eu dui
                   semper vel tortor. Augue egestas adipiscing nec commodo arcu
                   sed lorem odio vulputate. Posuere ipsum a ullamcorper bibendum

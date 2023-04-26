@@ -26,12 +26,16 @@ export default function App({ Component, pageProps }) {
           <Navbar
             darkMode={darkMode}
             toggleDarkMode={toggleDarkMode}
-            absolute={true}
+            absolute={true} // Add absolute prop only for Home component
           />
         ) : (
           <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         )}
-        <Component darkMode={darkMode} {...pageProps} />
+        <Component
+          darkMode={darkMode}
+          absolute={Component.name === "Home"} // Pass absolute prop based on component name
+          {...pageProps}
+        />
         <Footer />
       </div>
     </>
