@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router"; // Import useRouter from next/router
 import "@/styles/globals.css"; // Import your global CSS file
 import "@/styles/custom-fonts.css";
 import Navbar from "@/components/navbar/navbar";
@@ -6,7 +7,8 @@ import Footer from "@/components/footer/footer";
 
 export default function App({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
-  const isHomeComponent = Component.name === "Home"; // Check if Component is Home component
+  const router = useRouter(); // Initialize useRouter
+  const isHomeComponent = router.pathname === "/"; // Use router.pathname to determine if Component is Home component
 
   useEffect(() => {
     if (darkMode) {
