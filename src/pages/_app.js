@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
         />
         <Component
           darkMode={darkMode}
-          {...(Component.name === "Home" && { absolute: true })} // Pass absolute prop only for Home component
+          {...(Component.name === "Home" && { absolute: true })} // Pass absolute prop only for Home comp
           {...pageProps}
         />
         <Footer />
