@@ -216,7 +216,7 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
                       placeholder="Write your message!"
                       className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3"
                     />
-                    <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
+                    <div className="absolute right-0 items-center inset-y-0 sm:flex">
                       <button
                         onClick={handleSubmit}
                         type="button"
