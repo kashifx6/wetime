@@ -83,7 +83,7 @@ export default function Home(props) {
             </div>
             <Link
               href="#"
-              className="py-2 pl-3 pr-4 text-white bg-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]  dark:border-t-2 dark:border-gray-700"
+              className="py-2 pl-3 pr-4 bg-[#D9F4FD] text-[#120F49] font-medium rounded-3xl md:w-[138px] text-center text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-[#1E1E1E] shadow-lg focus:outline-none dark:text-[#F5F5F5]  dark:border-t-2 dark:border-gray-700"
             >
               READ MORE
             </Link>
