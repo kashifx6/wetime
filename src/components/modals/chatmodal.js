@@ -6,6 +6,7 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
   const [output, setOutput] = useState("");
   const [history, setHistory] = useState([]);
   const [outputHistory, setOutputHistory] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
   const handleInput = (event) => {
     setInput(event.target.value);
   };
@@ -13,16 +14,18 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (description !== null) { // Add a conditional check for description
+        setIsTyping(true);
+        if (description !== null) {
+          // Add a conditional check for description
           const response = await fetch("/api/openai", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ input:description }),
+            body: JSON.stringify({ input: description }),
           });
           const data = await response.json();
-         
+
           setHistory((prevOutput) => [...prevOutput, description]);
           setOutput(data.message);
           setOutputHistory((prevOutput) => [...prevOutput, data.message]);
@@ -31,15 +34,17 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsTyping(false); // Stop typing animation
       }
     };
-    
+
     fetchData(); // Call fetchData function to trigger the API call
   }, [description]);
-   
 
-  const handleSubmit = async () => { 
+  const handleSubmit = async () => {
     try {
+      setIsTyping(true);
       const response = await fetch("/api/openai", {
         method: "POST",
         headers: {
@@ -55,6 +60,8 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
       setOutput("");
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsTyping(false); // Stop typing animation
     }
   };
   return (
@@ -184,6 +191,12 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
                         )}
                       </React.Fragment>
                     ))}
+
+                    {isTyping && (
+                      <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                        Typing...
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="border-t-2 border-gray-200 px-4 pt-4 mb-[15px] sm:mb-0">
