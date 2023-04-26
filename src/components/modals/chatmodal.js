@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
   const [input, setInput] = useState();
@@ -10,7 +12,9 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
   const handleInput = (event) => {
     setInput(event.target.value);
   };
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -172,7 +176,11 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
                           />
                         </div>
                         {outputHistory[index] && (
-                          <div className="flex flex-wrap items-start mb-4">
+                          <div
+                            className="flex flex-wrap items-start mb-4"
+                            data-aos="fade-up" // Apply fade-up animation to each output message
+                            data-aos-duration="500" // Duration of the animation (in ms)
+                          >
                             <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                               <div>
                                 <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
@@ -193,9 +201,16 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
                     ))}
 
                     {isTyping && (
-                      <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                        Typing...
-                      </span>
+                      <div
+                        data-aos="fade-up" // Apply fade-up animation to the typing animation
+                        data-aos-duration="500" // Duration of the animation (in ms)
+                      >
+                        {/* Replace "Typing..." with the desired animation */}
+                        {/* For example, you can use icons, SVG animations, or other AOS animations */}
+                        <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                          Typing...
+                        </span>
+                      </div>
                     )}
                   </div>
                 </div>
