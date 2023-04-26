@@ -75,11 +75,11 @@ const Chatmodal = ({ isOpen, handleToggleModal, description, game }) => {
           id="staticModal"
           tabIndex="-1"
           aria-hidden="true"
-          className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] h-auto"
+          className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
         >
-          <div className="relative w-full  h-auto">
+          <div className="relative w-full  max-h-full">
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-auto">
+              <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
                 <div className="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
                   <div className="relative flex items-center space-x-4">
                     <div className="relative">
