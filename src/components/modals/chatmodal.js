@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
+const Chatmodal = ({ isOpen, handleToggleModal, description, game }) => {
   const [input, setInput] = useState();
   const [output, setOutput] = useState("");
   const [history, setHistory] = useState([]);
@@ -26,7 +26,7 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ input: description }),
+            body: JSON.stringify({ input: description, outputTopic: game }),
           });
           const data = await response.json();
 
@@ -54,7 +54,7 @@ const Chatmodal = ({ isOpen, handleToggleModal, description }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ input }),
+        body: JSON.stringify({ input, outputTopic: game }),
       });
       const data = await response.json();
       setHistory((prevOutput) => [...prevOutput, input]);

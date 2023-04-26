@@ -58,6 +58,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -80,6 +81,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -141,6 +143,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -183,6 +186,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -205,6 +209,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -246,6 +251,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -268,6 +274,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -290,6 +297,7 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>
@@ -312,7 +320,30 @@ const slug = () => {
                       isOpen={isOpen}
                       handleToggleModal={handleToggleModal}
                       description={isOpen ? value : null}
-                      message="Discuss what kind of appology you want ?"
+                      game={game.title}
+                    />
+                  </div>
+                </>
+              )}
+              {game && game.title === "COUPLE'S TIMEOUT" && (
+                <>
+                  <div className="sm:col-span-2">
+                    <Input
+                      label="Description"
+                      id="message"
+                      rows="6"
+                      placeholder="Describe why you want to take a timeout with your partner"
+                      value={value}
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="flex justify-center">
+                    <Button value="GENERATE SOLUTION" />
+                    <Chatmodal
+                      isOpen={isOpen}
+                      handleToggleModal={handleToggleModal}
+                      description={isOpen ? value : null}
+                      game={game.title}
                     />
                   </div>
                 </>

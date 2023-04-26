@@ -10,11 +10,15 @@ const openai = new OpenAIApi(
 
 export default async (req, res) => {
   try {
-    const { input } = req.body;
+    const { input,outputTopic } = req.body;
 
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
+        {
+          role: "system",
+          content: outputTopic, // Set system message with topic information
+        },
         {
           role: "user",
           content: input,
