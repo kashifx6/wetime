@@ -79,7 +79,7 @@ const Chatmodal = ({ isOpen, handleToggleModal, description, game }) => {
         >
           <div className="relative w-full  max-h-full">
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
+              <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
                 <div className="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
                   <div className="relative flex items-center space-x-4">
                     <div className="relative">
@@ -139,79 +139,43 @@ const Chatmodal = ({ isOpen, handleToggleModal, description, game }) => {
                   className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
                 >
                   <div className="chat-message">
-                    <div className="flex items-end mb-4">
-                      <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                        <div>
-                          <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                            Hi There ?
-                          </span>
-                        </div>
-                      </div>
-
-                      <Image
-                        className="w-6 h-6 rounded-full"
-                        src="/assets/images/bot.svg"
-                        alt=""
-                        width={10}
-                        height={10}
-                      />
-                    </div>
-
                     {history.map((message, index) => (
                       <React.Fragment key={index}>
-                        <div className="flex items-end justify-end mb-4">
-                          <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                            <div>
-                              <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                                {message}
-                              </span>
-                            </div>
-                          </div>
-                          <Image
-                            className="w-6 h-6 rounded-full order-2"
-                            src="/assets/images/user.svg"
-                            alt="user"
-                            width={10}
-                            height={10}
-                          />
-                        </div>
-                        {outputHistory[index] && (
-                          <div
-                            className="flex flex-wrap items-start mb-4"
-                            data-aos="fade-up" // Apply fade-up animation to each output message
-                            data-aos-duration="500" // Duration of the animation (in ms)
-                          >
-                            <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                        <div>
+                          <div className="flex flex-col text-xs w-full mx-2  items-start">
+                            <div className="flex items-center bg-[#f1f5f9] dark:bg-[#1e293b] w-full p-5 rounded">
+                              <Image
+                                className="w-6 h-6 rounded-full"
+                                src="/assets/images/user.svg"
+                                alt="user"
+                                width={10}
+                                height={10}
+                              />
                               <div>
-                                <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                                <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
+                                  {message}
+                                  {/* {outputHistory[index]} */}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="flex items-center bg-[#e2e8f0]  dark:bg-[#0f172a] w-full p-5 rounded">
+                              <Image
+                                className="w-6 h-6 rounded-full"
+                                src="/assets/images/bot.svg"
+                                alt=""
+                                width={10}
+                                height={10}
+                              />
+                              <div>
+                                <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
                                   {outputHistory[index]}
                                 </span>
                               </div>
                             </div>
-                            <Image
-                              className="w-6 h-6 rounded-full"
-                              src="/assets/images/bot.svg"
-                              alt=""
-                              width={10}
-                              height={10}
-                            />
                           </div>
-                        )}
+                        </div>
                       </React.Fragment>
                     ))}
-
-                    {isTyping && (
-                      <div
-                        data-aos="fade-up" // Apply fade-up animation to the typing animation
-                        data-aos-duration="500" // Duration of the animation (in ms)
-                      >
-                        {/* Replace "Typing..." with the desired animation */}
-                        {/* For example, you can use icons, SVG animations, or other AOS animations */}
-                        <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                          Typing...
-                        </span>
-                      </div>
-                    )}
                   </div>
                 </div>
                 <div className="border-t-2 border-gray-200 px-4 pt-4 mb-[15px] sm:mb-0">
@@ -237,13 +201,22 @@ const Chatmodal = ({ isOpen, handleToggleModal, description, game }) => {
                         </svg>
                       </button>
                     </span>
-                    <input
-                      onChange={handleInput}
-                      type="text"
-                      value={input}
-                      placeholder="Write your message!"
-                      className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3"
-                    />
+                    {isTyping && (
+                      <div data-aos="fade-up" data-aos-duration="500">
+                        <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                          Typing...
+                        </span>
+                      </div>
+                    )}
+                    {!isTyping && (
+                      <input
+                        onChange={handleInput}
+                        type="text"
+                        value={input}
+                        placeholder="Write your message!"
+                        className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 dark:bg-[#0f172a] placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3"
+                      />
+                    )}
                     <div className="absolute right-0 items-center inset-y-0 sm:flex">
                       <button
                         onClick={handleSubmit}
