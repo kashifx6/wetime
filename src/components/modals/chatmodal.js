@@ -143,7 +143,7 @@ const Chatmodal = ({ isOpen, handleToggleModal, description, game }) => {
                       <React.Fragment key={index}>
                         <div>
                           <div className="flex flex-col text-xs w-full mx-2  items-start">
-                            <div className="flex items-center bg-[#f1f5f9] dark:bg-[#1e293b] w-full p-5 rounded">
+                            <div className="flex items-center bg-[#f1f5f9] dark:bg-[#1e293b] w-full h-auto p-5 rounded">
                               <Image
                                 className="w-6 h-6 rounded-full"
                                 src="/assets/images/user.svg"
@@ -158,7 +158,7 @@ const Chatmodal = ({ isOpen, handleToggleModal, description, game }) => {
                                 </span>
                               </div>
                             </div>
-                            <div className="flex items-center bg-[#e2e8f0]  dark:bg-[#0f172a] w-full p-5 rounded">
+                            <div className="flex items-center bg-[#e2e8f0]  dark:bg-[#0f172a] w-full h-auto p-5 rounded">
                               <Image
                                 className="w-6 h-6 rounded-full"
                                 src="/assets/images/bot.svg"
