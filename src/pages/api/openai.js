@@ -10,10 +10,14 @@ const openai = new OpenAIApi(
 
 export default async (req, res) => {
   try {
-    const { input,outputTopic } = req.body;
+    const { input, outputTopic } = req.body;
 
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
+      max_tokens: 300,
+      n: 1,
+      stop: "\n",
+      temperature: 0.5,
       messages: [
         {
           role: "system",
@@ -28,7 +32,16 @@ export default async (req, res) => {
 
     if (response.data.choices && response.data.choices.length > 0) {
       const message = response.data.choices[0].message.content;
-      res.status(200).json({ message });
+      if (message.length === 0) {
+        res
+          .status(200)
+          .json({
+            message:
+              "Sorry, I didn't understand your question. please try again",
+          });
+      } else {
+        res.status(200).json({ message });
+      }
     } else {
       res.status(500).json({ error: "No response from chatbot" });
     }
